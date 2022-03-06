@@ -12,7 +12,6 @@ const AddNotes = ({ handlePost, setDesc, desc, edit, setEdit, handleEdit }) => {
 
   const handleIsOpen = () => {
     setEdit(!edit);
-    console.log("clicked");
   };
 
   return (
