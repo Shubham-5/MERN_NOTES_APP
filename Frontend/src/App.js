@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     async function getData() {
-      const res = await fetch(`${process.env.REACT_APP_API}/api/notes`);
+      const res = await fetch(`${process.env.REACT_APP_API}api/notes`);
       const data = await res.json();
       setposts(data);
     }
@@ -22,12 +22,12 @@ function App() {
   const handlePost = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`${process.env.REACT_APP_API}/api/notes`, {
+      await fetch(`${process.env.REACT_APP_API}api/notes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ desc }),
       });
-      const res = await fetch(`${process.env.REACT_APP_API}/api/notes`);
+      const res = await fetch(`${process.env.REACT_APP_API}api/notes`);
       const data = await res.json();
       setposts(data);
       setEdit(!edit);
@@ -41,11 +41,11 @@ function App() {
 
   const handleDeleteNote = async (id) => {
     try {
-      await fetch(`${process.env.REACT_APP_API}/api/delete/` + id, {
+      await fetch(`${process.env.REACT_APP_API}api/delete/` + id, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
-      const res = await fetch(`${process.env.REACT_APP_API}/api/notes`);
+      const res = await fetch(`${process.env.REACT_APP_API}api/notes`);
       const data = await res.json();
       setposts(data);
       alert("success");
@@ -59,12 +59,12 @@ function App() {
 
     if (desc) {
       try {
-        await fetch(`${process.env.REACT_APP_API}/api/notes/` + updateId, {
+        await fetch(`${process.env.REACT_APP_API}api/notes/` + updateId, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ desc }),
         });
-        const res = await fetch(`${process.env.REACT_APP_API}/api/notes`);
+        const res = await fetch(`${process.env.REACT_APP_API}api/notes`);
         const data = await res.json();
         setposts(data);
         setEdit(!edit);
